@@ -37,7 +37,7 @@ USAGE                                                             *subvim-usage*
 <
 
 ==============================================================================
-LICENSE                                                      *subvimvim-license*
+LICENSE                                                      *subvim-license*
 
 |subvim| is distributed under MIT license.
 

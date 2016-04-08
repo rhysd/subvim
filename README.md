@@ -3,19 +3,19 @@ Vim as Code Viewer in Sub Monitor
 
 ```vim
 " Open current file in subvim.  If there is no subvim, it starts it.
-SubvimOpen
+:SubvimOpen
 
 " Open some_file in subvim
-SubvimOpen path/to/some_file
+:SubvimOpen path/to/file1 path/to/file2
 
 " Start subvim explicitly.
-SubvimStart
+:SubvimStart
 
 " Close subvim
-SubvimQuit
+:SubvimQuit
 
 " Move subvim window foreground
-SubvimForeground
+:SubvimForeground
 ```
 
 ## License
