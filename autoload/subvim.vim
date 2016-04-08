@@ -98,8 +98,12 @@ function! subvim#open(paths, ...) abort
 
     let options = 'readonly'
     let fs = a:0 < 2 ? 0 : a:2 == 1
-    if fs && s:is_mac
-        let options .= ' fullscreen'
+    if fs
+        if s:is_mac
+            let options .= ' fullscreen'
+        else
+            let options .= ' lines=999 columns=999'
+        end
     endif
 
     let cmd = printf("%s -g --servername %s --remote '+set %s'", g:subvim#vim_cmd, s:SERVER_NAME, options)
