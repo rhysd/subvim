@@ -8,6 +8,7 @@ let s:SERVER_NAME = 'SUBVIM_SERVER'
 
 let g:subvim#i_am_subvim = get(g:, 'subvim#vim_cmd', 0)
 let g:subvim#vim_cmd = get(g:, 'subvim#vim_cmd', 'vim')
+let g:subvim#full_screen = get(g:, 'subvim#full_screen', 1)
 
 function! s:echo_error(...) abort
     echohl ErrorMsg
@@ -95,7 +96,13 @@ function! subvim#open(paths, ...) abort
 
     call subvim#ensure_server()
 
-    let cmd = printf("%s -g --servername %s --remote '+set readonly'", g:subvim#vim_cmd, s:SERVER_NAME)
+    let options = 'readonly'
+    let fs = a:0 < 2 ? 0 : a:2 == 1
+    if fs && s:is_mac
+        let options .= ' fullscreen'
+    endif
+
+    let cmd = printf("%s -g --servername %s --remote '+set %s'", g:subvim#vim_cmd, s:SERVER_NAME, options)
     for p in paths
         let cmd .= printf(" '%s'", fnamemodify(p, ':p'))
     endfor
