@@ -6,7 +6,7 @@ let s:is_mac = !s:is_windows && (
 
 let s:SERVER_NAME = 'SUBVIM_SERVER'
 
-let g:subvim#i_am_subvim = get(g:, 'subvim#vim_cmd', 0)
+let g:subvim#i_am_subvim = get(g:, 'subvim#i_am_subvim', 0)
 let g:subvim#vim_cmd = get(g:, 'subvim#vim_cmd', 'vim')
 let g:subvim#full_screen = get(g:, 'subvim#full_screen', 1)
 
